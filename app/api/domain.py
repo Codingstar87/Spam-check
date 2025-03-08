@@ -10,7 +10,8 @@ async def handle_domain(domain, db_pool):
         data = await DB.get_attr(TableNameEnum.DOMAINS, domain, db_pool)
         
         if data:
-            await DB.update_attr(TableNameEnum.DOMAINS, domain, {"seen": data.seen + 1}, db_pool=db_pool)
+            await DB.update_attr(TableNameEnum.DOMAINS, data.domain, {"seen": data.seen + 1}, db_pool)
+
             return {
                 "code": 200,
                 "domain": domain,
