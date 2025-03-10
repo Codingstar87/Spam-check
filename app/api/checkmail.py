@@ -155,7 +155,7 @@ async def check_email( data, db_pool):
 
     
     
-    print("current_count",current_count)
+    # print("current_count",current_count)
     if current_count is None:
         redis_client.set(redis_count_key, 0, ex=60)
         current_count = 0
